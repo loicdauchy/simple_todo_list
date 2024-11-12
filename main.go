@@ -122,16 +122,17 @@ func updateTask(scanner *bufio.Scanner) {
 		return
 	}
 
-	for _, task := range tasks {
-		if task.Id == id {
-			if !task.Done {
-				task.Done = true
-				fmt.Println(task.Id)
-				fmt.Println(task.Title)
-				fmt.Println(task.Done)
+	for i := range tasks {
+		if tasks[i].Id == id {
+			if !tasks[i].Done {
+				tasks[i].Done = true
+				fmt.Println(tasks[i].Id)
+				fmt.Println(tasks[i].Title)
+				fmt.Println(tasks[i].Done)
 				fmt.Println("Task updated successfully!")
-				break
 			}
+
+			return
 		}
 	}
 }
